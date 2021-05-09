@@ -50,7 +50,21 @@ app.get("/url/emotion", (req,res) => {
 });
 
 app.get("/url/sentiment", (req,res) => {
-    return res.send("url sentiment for "+req.query.url);
+    const analyzeParams = {
+        'url': req.query.url,
+        'features': {
+            'sentiment': {}
+        }
+    };
+    getNLUInstance().analyze(analyzeParams)
+    .then(analysisResults => {
+        console.log(JSON.stringify(analysisResults, null, 2));
+        return res.send(analysisResults.result.sentiment.document);
+    })
+    .catch(err => {
+        console.log('error:', err);
+        return res.send(err);
+    });
 });
 
 app.get("/text/emotion", (req,res) => {
