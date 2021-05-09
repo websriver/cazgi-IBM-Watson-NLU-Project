@@ -28,6 +28,31 @@
   color: #61dafb;
 }
 
+div.gr{
+    border: 1px solid green;
+    border-bottom-width: 5px;
+    padding: 10px;
+    margin: 10px auto;
+    background-color: #b3f7b3;
+    width: 50%;
+}
+div.re{
+    border: 1px solid red;
+    border-bottom-width: 5px;
+    padding: 10px;
+    margin: 10px auto;
+    background-color: #f7b3b3;
+    width: 50%;
+}
+div.or{
+    border: 1px solid orange;
+    border-bottom-width: 5px;
+    padding: 10px;
+    margin: 10px auto;
+    background-color: #f5f7b3;
+    width: 50%;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

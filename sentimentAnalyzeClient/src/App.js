@@ -54,11 +54,11 @@ class App extends React.Component {
       let output;
       
       if(response.data.label === "positive") {
-        output = <div style={{"color":"green","fontSize":20}}>{JSON.stringify(response.data)}</div>
+        output = <div class="gr" style={{"color":"green","fontSize":20}}>{JSON.stringify(response.data)}</div>
       } else if (response.data.label === "negative"){
-        output = <div style={{"color":"red","fontSize":20}}>{JSON.stringify(response.data)}</div>
+        output = <div class="re" style={{"color":"red","fontSize":20}}>{JSON.stringify(response.data)}</div>
       } else {
-        output = <div style={{"color":"orange","fontSize":20}}>{JSON.stringify(response.data)}</div>
+        output = <div class="or" style={{"color":"orange","fontSize":20}}>{JSON.stringify(response.data)}</div>
       }
       this.setState({sentimentOutput:output});
     });
