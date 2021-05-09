@@ -36,7 +36,7 @@ class App extends React.Component {
   }
 
   sendForSentimentAnalysis = () => {
-    this.setState({sentiment:true});
+    //this.setState({sentiment:true});
     let ret = "";
     let url = ".";
 
@@ -50,23 +50,22 @@ class App extends React.Component {
 
       //Include code here to check the sentiment and fomrat the data accordingly
 
-      this.setState({sentimentOutput:response.data});
-      let output = response.data;
-      this.setMystatus(output);
-      console.log("---->",output)
-      if(response.data === "positive") {
-        output = <div style={{color:"green",fontSize:20}}>{response.data}</div>
-      } else if (response.data === "negative"){
-        output = <div style={{color:"red",fontSize:20}}>{response.data}</div>
+      //this.setState({sentimentOutput:response.data});
+      let output;
+      
+      if(response.data.label === "positive") {
+        output = <div style={{"color":"green","fontSize":20}}>{JSON.stringify(response.data)}</div>
+      } else if (response.data.label === "negative"){
+        output = <div style={{"color":"red","fontSize":20}}>{JSON.stringify(response.data)}</div>
       } else {
-        output = <div style={{color:"orange",fontSize:20}}>{response.data}</div>
+        output = <div style={{"color":"orange","fontSize":20}}>{JSON.stringify(response.data)}</div>
       }
       this.setState({sentimentOutput:output});
     });
   }
 
   sendForEmotionAnalysis = () => {
-    this.setState({sentiment:false});
+    //this.setState({sentiment:false});
     let ret = "";
     let url = ".";
     if(this.state.mode === "url") {
